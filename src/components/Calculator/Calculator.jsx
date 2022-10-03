@@ -9,7 +9,7 @@ import PriceInp from '../PriceInp/PriceInp';
 import s from './calculator.module.scss';
 
 function Calculator() {
-	const { price, percentPrice, month, finalPrice, monthPrice, loader } = useSelector((state) => state.calculator);
+	const { finalPrice, monthPrice, loader } = useSelector((state) => state.calculator);
 	const dispatch = useDispatch();
 
 	const submitHandler = async (e) => {
@@ -24,7 +24,8 @@ function Calculator() {
 		headers.append('Content-Type', 'image/jpeg');
 
 		try {
-			await fetch(`https://eoj3r7f3r4ef6v4.m.pipedream.net`, { method: 'POST', headers: headers });
+			await fetch(`https://eoj3r7f3r4ef6v4.m.pipedream.net`, { method: 'POST', headers: headers, body: form });
+      dispatch(setLoader(false));
 		} catch (e) {
 			console.log(e.name);
 		}
