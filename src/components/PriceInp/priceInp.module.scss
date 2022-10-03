@@ -1,0 +1,25 @@
+@use 'sass:math';
+@import '../../assets/scss/base/mixins';
+
+.automobile {
+  width: 427px;
+  @include adaptiveValue("width", 427, 280, 1440, 1024, 1);
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+  &__input {
+    position: relative;
+    &::after {
+      content: '₽';
+      position: absolute;
+      top: 50%;
+      right: 24px;
+      transform: translate(0, -57%);
+      font-family: 'Nekst';
+      font-weight: 900;
+      font-size: rem(30);
+      @include adaptiveValue("font-size", 30, 22, 768, 320, 1);
+      line-height: math.div(36, 30);
+    }
+  }
+}

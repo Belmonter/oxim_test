@@ -1,0 +1,16 @@
+@use 'sass:math';
+@import '../../assets/scss/base/mixins';
+
+.month {
+  &__thumb {
+    &:hover {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+  &__track {
+    width: 88%;
+  }
+}
+
+

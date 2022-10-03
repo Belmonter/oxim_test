@@ -1,0 +1,24 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "useTabs": true,
+  "semi": true,
+  "BracketLine": true,
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/components/(.*)$",
+    "^@/assets/(.*)$",
+    "^@/img/(.*)$",
+    "^../(.*)",
+    "^./(.*)",
+    "(.scss)$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderParserPlugins": [
+    "jsx",
+    "typescript"
+  ],
+  "printWidth": 150
+}

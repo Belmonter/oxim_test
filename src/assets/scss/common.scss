@@ -1,0 +1,160 @@
+@use 'sass:math';
+@import 'base/mixins';
+
+.input {
+  margin-top: 24px;
+  display: block;
+  width: 100%;
+  height: 68px;
+  padding: 16px 30px 16px 24px;
+  background: #F3F3F4;
+  border-radius: 16px;
+  font-family: 'Nekst';
+  font-weight: 900;
+  @include adaptiveValue("font-size", 30, 22, 768, 320, 1);
+  line-height: math.div(36, 30);
+  color: $mainColor;
+  outline: none;
+  transition: background 0.3s ease 0s;
+  &:focus {
+    border: 2px solid #F3F3F4;
+    background: $white;
+  }
+  &:disabled {
+    background: #F3F3F4 !important;
+    color: #BCBCBC !important;
+  }
+}
+
+label {
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.priceInfo {
+  &__item {
+    padding-top: 44px;
+    @media (max-width: 1024px) {
+      padding-top: 0;
+    }
+  }
+  &__title {
+    line-height: 150%;
+    @include adaptiveValue("font-size", 16, 14);
+  }
+  &__sum {
+    margin-top: 8px;
+    font-weight: 900;
+    font-size: rem(54);
+    @include adaptiveValue("font-size", 54, 42, 1440, 1024, 1);
+    line-height: 90%;
+    font-family: 'Nekst';
+    @media (max-width: 768px) {
+      @include adaptiveValue("font-size", 42, 22, 768, 320, 1);
+    }
+  }
+  &__btn {
+    position: relative;
+    width: 100%;
+    @include adaptiveValue("height", 68, 60, 768, 320, 1);
+    background: $orange;
+    border-radius: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nekst';
+    font-weight: 900;
+    @include adaptiveValue("font-size", 30, 22, 768, 320, 1);
+    line-height: math.div(36, 30);
+    color: $white;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background: #111111;
+    }
+    &:active {
+      background: #575757;
+    }
+    &:disabled {
+      background: #FFD5A1;
+    }
+    @media (max-width: 1024px) {
+      @include adaptiveValue("width", 345, 280, 1024, 320, 1);
+    }
+  }
+}
+.btn__wrapper {
+  @include adaptiveValue("margin-top", 44, 32, 768, 320, 1);
+  height: 81px;
+  display: flex;
+  align-items: center;
+}
+
+.unselectable {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.inp_disabled {
+  color: #BCBCBC !important;
+}
+
+.desktop {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.lds-ring {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, -35%);
+  width: 80px;
+  height: 80px;
+  &.active {
+    display: inline-block;
+  }
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
